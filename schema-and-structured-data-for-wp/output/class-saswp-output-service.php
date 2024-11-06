@@ -404,7 +404,7 @@ Class SASWP_Output_Service{
                         $column_name = str_replace('rank_math_', '', $cus_field[$key]);
                         $term_id        =   '';
                         $term_taxonomy  =   '';
-                        if ( is_category() || is_tag() || is_product_category() ) {
+                        if ( is_category() || is_tag() || ( function_exists( 'is_product_category' ) && is_product_category() ) ) {
                             $query_obj  =   get_queried_object();
                             if ( ! empty( $query_obj ) && is_object( $query_obj ) && ! empty( $query_obj->term_id ) ) { 
                                 $term_id            =   $query_obj->term_id;
@@ -412,7 +412,7 @@ Class SASWP_Output_Service{
                             }
                         }
 
-                        if( ( is_category() || is_tag() || is_product_category() ) && $term_id > 0 ) {
+                        if( ( is_category() || is_tag() || ( function_exists( 'is_product_category' ) && is_product_category() ) ) && $term_id > 0 ) {
                             $response       =   get_term_meta( $term_id, $cus_field[$key], true );
                             $rank_data      =   RankMath\Helper::replace_vars( $response, get_term( $term_id, $term_taxonomy ) );
                             if ( ! empty( $rank_data ) && is_string( $rank_data ) ) {
@@ -9192,9 +9192,15 @@ Class SASWP_Output_Service{
                                                         $min_val    =   min ( $image_details[1], $image_details[2] );
 
                                                         if ( $image_details[1] == 1200 && in_array ( $image_details[2], $height_array ) ) {
-
-                                                            $width      =   array ( $min_val, 1200, 1200 );   
-                                                            $height     =   array ( $min_val, 900, 675 );   
+                                                            
+                                                            $width_array    =  array ( 1200, 1200, $min_val );   
+                                                            $height_array   =  array ( 675, 900, $min_val );   
+                                                            if ( $image_details[2] == 900 ) {
+                                                                $height_array   =  array ( 900, 675, $min_val );
+                                                            }
+                                                            
+                                                            $width      =   $width_array;
+                                                            $height     =   $height_array;   
 
                                                         } else {
                                                             $width[]    =   $min_val;
