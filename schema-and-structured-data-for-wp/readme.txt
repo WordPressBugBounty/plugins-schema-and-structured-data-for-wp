@@ -2,9 +2,9 @@
 Contributors: magazine3
 Tags: Schema, Structured Data, Rich Snippets, SEO, AMP
 Requires at least: 4.5
-Tested up to: 6.8
+Tested up to: 6.9
 Requires PHP: 5.6.20
-Stable tag: 1.50
+Stable tag: 1.54.2
 License: GPLv2 or later
 License URI: http://www.gnu.org/licenses/gpl-2.0.html
 Schema & Structured Data adds Google Rich Snippets markup according to Schema.org guidelines to structure your site for SEO.
@@ -12,6 +12,8 @@ Schema & Structured Data adds Google Rich Snippets markup according to Schema.or
 == Description ==
 
 Schema & Structured Data for WP & AMP adds Google Rich Snippets markup according to Schema.org guidelines to structure your site for SEO. (AMP Compatible) 
+
+[Home](https://structured-data-for-wp.com/) | [Help & Tech Support](https://structured-data-for-wp.com/contact-us/) | [Documentation](https://structured-data-for-wp.com/docs/)  | [Pro version Features](https://structured-data-for-wp.com/pricing/)
 
 ### Features 
 
@@ -88,11 +90,28 @@ Schema & Structured Data for WP & AMP adds Google Rich Snippets markup according
 * ProfilePage
 * Game
 * Certification
+* Guide
 * [View All](https://structured-data-for-wp.com/docs/article/how-many-schema-types-do-we-support/)
 
 ### Extensions
 
-Some useful extensions to extend Schema & Structured Data for WP & AMP features, check [Woocommerce Compatibility For Schema](https://structured-data-for-wp.com/extensions/woocommerce-compatibility-for-schema/), [Cooked Compatibility For Schema](https://structured-data-for-wp.com/extensions/cooked-compatibility-for-schema/) and We are going to add more.
+Some useful extensions to extend Schema & Structured Data for WP & AMP features
+
+1. [Woocommerce Compatibility For Schema](https://structured-data-for-wp.com/extensions/woocommerce-compatibility-for-schema/) 
+2. [WPML Schema Compatibility](https://structured-data-for-wp.com/wpml-schema-compatibility/) 
+3. [Polylang Compatibility For SASWP](https://structured-data-for-wp.com/polylang-compatibility-for-saswp)
+4. [FAQ Schema Compatibility](https://structured-data-for-wp.com/faq-schema-compatibility/)
+5. [Event Schema](https://structured-data-for-wp.com/event-schema/)
+6. [Google News Schema Setup](https://structured-data-for-wp.com/services/google-news-schema-setup/)
+7. [Show Business Reviews in Google SERP!](https://structured-data-for-wp.com/reviews-for-schema)
+8. [Classifieds Plugin Compatibility](https://structured-data-for-wp.com/classifieds-plugin-compatibility/)
+9. [1-Click Indexing API Integration](https://structured-data-for-wp.com/1-click-indexing-api-integration/)
+10. [JobPosting Schema Compatibility](https://structured-data-for-wp.com/jobposting-schema-compatibility/)
+11. [Recipe Schema](https://structured-data-for-wp.com/recipe-schema/)
+12. [Course Schema](https://structured-data-for-wp.com/course-schema/)
+13. [Real Estate Schema](https://structured-data-for-wp.com/extensions/real-estate-schema/)
+14. [Q&A Schema Compatibility](https://structured-data-for-wp.com/qanda-schema-for-saswp/)
+15. [WooCommerce Compatibility for Schema](https://structured-data-for-wp.com/extensions/woocommerce-compatibility-for-schema/)
 
 ### Support
 
@@ -130,6 +149,44 @@ Yes, Absolutely! We would suggest you send your feature request by creating an i
 You can contact us from [here](http://structured-data-for-wp.com/contact-us/)
 
 == Changelog ==
+
+= 1.54.2 (20 January 2026) =
+* Bnner: Omni-review Banner integration #2384
+
+= 1.54.1 (17 January 2026) =
+* Fixed: Vulnerability reported by Wordfence Security and researched by type5afe #2395
+* Fixed: Role based access issue #2398
+
+= 1.54 (31 December 2025) =
+* Fixed: Heading and description translation issue in schema due to incomatibility with tranlatepress #2373
+* Feature: Added more fields in Physician schema #2375
+* Fixed: Double star rating options appearing in comment box when enabling comment rating module #2378
+* Fixed: Keywords field not working with blog posting schema #2381
+* Feature: Added compatibility for Capterra platform #2382
+* Fixed: Removed promotion banner BFCM #2386
+* Feature: Added compatibility for Meta Box #2388
+* Fixed: Issue with course schema #2391
+* Fixed: Review collection sorting issue #2392
+
+= 1.53 (28 November 2025) =
+* Promotion Banner BFCM #2386
+* Added Fields: legalName, contactPoint to the Organization schema #2385
+* Tested Upto WordPress 6.9.
+
+= 1.52 (30 October 2025) =
+* Fixed: Time issue with LiveBlogPosting schema #2371
+* Enhancement: Duplicate schema issue in the review collection #2372
+* Fixed: Code improvement #2376
+* Fixed: Vulnerability reported by Wordfence Security
+
+= 1.51 (07 October 2025) =
+* Feature: Add Guide schema type #2313
+* Enhancement: Improvement in JobPosting schema #2347
+* Enhancement: Added organization type "General" in knowledge graph #2356
+* Enhancement: Added award schema for book #2361
+* Fixed: Improvement in Person schema #2363
+* Fixed: Global schema modification issue in Person schema #2365
+* Enhancement: Improvement in SiteNavigationElement Schema #2369
 
 = 1.50 (02 September 2025) =
 * Enhancement: Fetch YouTube API Data from post's ACF Oembed field #2311
@@ -280,36 +337,5 @@ You can contact us from [here](http://structured-data-for-wp.com/contact-us/)
 * Feature: Added Compatibility with wpForo plugin #2204
 * Enhancement: Issue with adding a live YouTube video to post #2205
 * Feature: Added compatibility with the plugin RealtyPress Premium #2206
-
-= 1.37 (09 October 2024) =
-* Fixed: Avatars are disabled still they are being added to the schema markup #2184
-* Feature: Added compatibility with Discout Rules plugin #2190
-* Fixed: Issue with Taxonomy placement setup #2191
-* Fixed: ACF time picker conflict issue in block editor #2195
-
-= 1.36 (18 September 2024) =
-* Feature: Added URL Parameter placement to targer URL's #2117
-* Enhancement: Categories text appears in headline fields #2155
-* Fixed: Conflict between the DiscussionForumPosting schema placement and the wpForo plugin #2157
-* Enhancement: Removed the Article type from webpages schema #2158
-* Feature: Added missing field in car schema #2159
-* Feature: Jackrabbit compatibility with course and event schema #2163
-* Feature: Added compatibility with the WP Job Board Pro plugin #2166
-* Fixed: Warnings appearing on user end #2167
-* Fixed: Time picker issue with plugin Advanced Custom Fields in the Admin mode #2173
-* Feature: Added compatability for ACF CPT with JobPosting schema #2174
-* Enhancement: Delete files after importing settings #2176
-* Enhancement: Fixed GTIN12 issue with the product schema for variable products #2180
-* Fixed: Comments was not appears in Recipes #2182
-
-= 1.35 (02 August 2024) =
-* Enhancement: Added new properties in LodgingBusiness > Hotel schema #2105
-* Fixed: Feature image size duplicate issue in schema markup #2140
-* Fixed: Issue with country field missing in the schema markup while modifying the schema output (Local Business) #2147
-* Fixed: A fatal error issue in the latest update of 1.34.2 #2148
-* Fixed: FAQ Block not working on Divi Builder #2149
-* Fixed: PHP warnings on schema types page #2150
-* Fixed: ACF fields are unclickable when the plugin is activated and an error appears in the Console #2152
-* Fixed: The ReturnFeesCustomerResponsibility field is missing in the product schema #2153
 
 All changelog available on [GitHub](https://github.com/ahmedkaludi/schema-and-structured-data-for-wp/releases).

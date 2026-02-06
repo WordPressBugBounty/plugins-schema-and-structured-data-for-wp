@@ -282,6 +282,32 @@ function saswp_get_fields_by_schema_type( $schema_id = null, $condition = null, 
                                'id'      => 'local_business_employee_'.$schema_id,
                                'type'    => 'textarea',
                                'note'    => 'Note: If There are more than one employee. Separate employee list by comma ( , )'                                   
+                       );  
+                       $meta_field[] = array(
+                               'label'   => 'Hospital Affiliation Name',
+                               'id'      => 'local_business_han_'.$schema_id,
+                               'type'    => 'text',                                   
+                       );                                                
+                       $meta_field[] = array(
+                               'label'   => 'Hospital Affiliation URL',
+                               'id'      => 'local_business_hau_'.$schema_id,
+                               'type'    => 'text',                                   
+                       );  
+                       $meta_field[] = array(
+                               'label'   => 'Medical Specialty',
+                               'id'      => 'local_business_medical_speciality_'.$schema_id,
+                               'type'    => 'text',   
+                               'note'    => 'Note: If There are more than one medical speciality. Separate medical speciality list by comma ( , )',                        
+                       );                                               
+                       $meta_field[] = array(
+                               'label'   => 'Occupational Category',
+                               'id'      => 'local_business_occupational_category_'.$schema_id,
+                               'type'    => 'text',                        
+                       );   
+                       $meta_field[] = array(
+                               'label'   => 'USNPI',
+                               'id'      => 'local_business_usnpi_'.$schema_id,
+                               'type'    => 'text',                        
                        );                                                
                         $meta_field[] =   array(
                             'label' => 'Facebook',
@@ -6637,6 +6663,11 @@ function saswp_get_fields_by_schema_type( $schema_id = null, $condition = null, 
                             'type'    => 'text',
                             'default' => saswp_remove_warnings($product_details, 'product_review_count', 'saswp_string')
                         ),
+                        array(
+                            'label'   => 'Award',
+                            'id'      => 'saswp_product_schema_award_'.$schema_id,
+                            'type'    => 'text',                            
+                        ),
                     );
                     
                     break;
@@ -7119,7 +7150,12 @@ function saswp_get_fields_by_schema_type( $schema_id = null, $condition = null, 
                                 'label' => 'Rating Count',
                                 'id'    => 'saswp_service_schema_rating_count_'.$schema_id,
                                 'type'  => 'text',                            
-                        )
+                        ),
+                        array(
+                                'label' => 'Award',
+                                'id'    => 'saswp_service_schema_award_'.$schema_id,
+                                'type'  => 'text',                            
+                        ),
                             
                     );
                     break;
@@ -9449,7 +9485,7 @@ function saswp_get_fields_by_schema_type( $schema_id = null, $condition = null, 
                     array(
                             'label'      => 'Employment Type',
                             'id'         => 'saswp_jobposting_schema_employment_type_'.$schema_id,
-                            'type'       => 'select', 
+                            'type'       => 'multiselect', 
                             'options'    => array(
                                 'FULL_TIME'  => 'FULL_TIME',
                                 'PART_TIME'  => 'PART_TIME',
@@ -11015,6 +11051,11 @@ function saswp_get_fields_by_schema_type( $schema_id = null, $condition = null, 
                             'label'   => 'Rating Count',
                             'id'      => 'saswp_book_rating_count_'.$schema_id,
                             'type'    => 'text',                            
+                    ),
+                    array(
+                            'label'   => 'Award',
+                            'id'      => 'saswp_book_award_'.$schema_id,
+                            'type'    => 'text',                            
                     ),                                                                            
                    );
                     break;
@@ -11089,6 +11130,11 @@ function saswp_get_fields_by_schema_type( $schema_id = null, $condition = null, 
                     array(
                             'label'      => 'Name',
                             'id'         => 'saswp_organization_name_'.$schema_id,
+                            'type'       => 'text',                           
+                        ),
+                        array(
+                            'label'      => 'Legal Name',
+                            'id'         => 'saswp_organization_legal_name_'.$schema_id,
                             'type'       => 'text',                           
                         ),
                     array(
@@ -11166,6 +11212,16 @@ function saswp_get_fields_by_schema_type( $schema_id = null, $condition = null, 
                                 'id'         => 'saswp_organization_linkedin_'.$schema_id,
                                 'type'       => 'text',                           
                             ),
+                            array(
+                                'label'      => 'ContactPoint Type',
+                                'id'         => 'saswp_organization_contact_point_type_'.$schema_id,
+                                'type'       => 'text',                           
+                            ),
+                            array(
+                                'label'      => 'ContactPoint Telephone',
+                                'id'         => 'saswp_organization_contact_point_telephone_'.$schema_id,
+                                'type'       => 'text',                           
+                            ),                            
                            array(
                                 'label'      => 'Threads',
                                 'id'         => 'saswp_organization_threads_'.$schema_id,
@@ -11275,7 +11331,12 @@ function saswp_get_fields_by_schema_type( $schema_id = null, $condition = null, 
                                 'label'      => 'Mester Head',
                                 'id'         => 'saswp_organization_masthead_'.$schema_id,
                                 'type'       => 'text',
-                            ),    
+                            ), 
+                            array(
+                                'label'      => 'Award',
+                                'id'         => 'saswp_organization_award_'.$schema_id,
+                                'type'       => 'text',                            
+                            ),   
                                                                                         
                    );
                     break;
@@ -12796,6 +12857,35 @@ function saswp_get_fields_by_schema_type( $schema_id = null, $condition = null, 
                             'type'     => 'text'                               
                         ),
                     );
+                    break;
+
+                    case 'Guide':
+                        $meta_field = array(
+                            array(
+                                'label'     => 'Name',
+                                'id'        => 'saswp_guide_name_'.$schema_id,
+                                'type'      => 'text',
+                                'default'   => saswp_get_the_title(),
+                            ),
+                            array(
+                                'label'     => 'About',
+                                'id'        => 'saswp_guide_about_'.$schema_id,
+                                'type'      => 'text',
+                                'default'   => '',
+                            ),
+                            array(
+                                'label'     => 'Text',
+                                'id'        => 'saswp_guide_text_'.$schema_id,
+                                'type'      => 'text',
+                                'default'   => saswp_strip_all_tags(get_the_excerpt()),
+                            ),
+                            array(
+                                'label'     => 'Review Aspect',
+                                'id'        => 'saswp_guide_review_aspect_'.$schema_id,
+                                'type'      => 'text',
+                                'note'      => 'Note: Enter all the review aspects in comma separated',
+                            ),
+                        );
                     break;
 
                 default:
